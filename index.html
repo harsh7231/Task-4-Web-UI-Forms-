@@ -1,0 +1,31 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Customer Purchase Prediction</h1>
+    {% if prediction_text %}
+        <div class="alert alert-primary" role="alert">
+            The customer {{ prediction_text }} make a purchase.
+        </div>
+    {% endif %}
+    <form method="POST">
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" class="form-control" id="age" name="age" required>
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <select class="form-control" id="gender" name="gender" required>
+                <option value="">Select gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="income">Income:</label>
+            <input type="number" class="form-control" id="income" name="income" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Predict</button>
+    </form>
+</div>
+{% endblock %}
